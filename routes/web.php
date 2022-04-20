@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Livewire\Welcome;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', Welcome::class)->name('welcome');
+Route::get('/', [UsersController::class, 'index'])->name('users.index');
+Route::get('/create', [UsersController::class, 'create'])->name('users.create');
+Route::post('/', [UsersController::class, 'store'])->name('users.store');
